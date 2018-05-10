@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a8d013f7c3f847f3b438f5c2d74472de" Name="Diagram1" DisplayType="true">
+        <EntityTypeShape EntityType="AmigoWalletModel.Bank" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AmigoWalletModel.Merchant" Width="2.375" PointX="8.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AmigoWalletModel.MerchantServiceMapping" Width="2.375" PointX="10" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AmigoWalletModel.MerchantServiceType" Width="2" PointX="7.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AmigoWalletModel.MerchantTransaction" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AmigoWalletModel.OTP" Width="1.5" PointX="5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AmigoWalletModel.OTPPurpose" Width="1.5" PointX="2.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AmigoWalletModel.PaymentType" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AmigoWalletModel.Status" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AmigoWalletModel.User" Width="2.125" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AmigoWalletModel.UserCard" Width="2.125" PointX="5.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AmigoWalletModel.UserTransaction" Width="1.5" PointX="6" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="AmigoWalletModel.fk_ServiceId" ManuallyRouted="false" />
+        <AssociationConnector Association="AmigoWalletModel.fk_MerchantT_PaymentTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AmigoWalletModel.fk_MerchantT_StatusId" ManuallyRouted="false" />
+        <AssociationConnector Association="AmigoWalletModel.fk_OTPPurposeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AmigoWalletModel.fk_UserT_PaymentTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="AmigoWalletModel.FK__User__StatusId__308E3499" ManuallyRouted="false" />
+        <AssociationConnector Association="AmigoWalletModel.fk_UserT_StatusId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,72 @@
+﻿<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+@*
+    Script to handle cascading select list in pay bills
+
+    When user choses a service type, the merchant select list will be populated with
+    the appropriate merchant email IDs
+*@
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        //Dropdownlist Selectedchange event
+        $("#Utilities").change(function () {
+            $("#Merchants").empty();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetMerchants")', // we are calling json method
+
+                dataType: 'json',
+
+                data: { id: $("#Utilities").val() },
+                // here we are get value of selected utility and passing same value
+                // as input to json method GetMerchants.
+
+                success: function (states) {
+                    // states contains the JSON formatted list
+                    // of states passed from the controller
+
+                    $.each(states, function (i, merchant) {
+                        $("#Merchants").append('<option value="' + merchant.Value + '">' +
+                         merchant.Text + '</option>');
+                    // here we are adding option for Merchants
+
+                    });
+                },
+                error: function (ex) {
+                    alert('Failed to retrieve merchants.' + ex);
+                }
+            });
+            return false;
+        })
+    });
+</script>
+
+@* Pay bill modal partial view *@
+@using (Html.BeginForm("PayBill", "Account"))
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.DropDownList("Utilities", ViewData["utilities"] as List<SelectListItem>, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.DropDownList("Merchants", new SelectList(string.Empty, "Value", "Text"), "Please select a merchant", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="number" step="0.01" class="form-control" name="amount" placeholder="Please enter amount to be transfered">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="modal-footer">
+                <input type="submit" value="Pay" class="btn btn-default pull-left" />
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+}

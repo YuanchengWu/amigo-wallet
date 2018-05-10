@@ -1,0 +1,14 @@
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\AmigoWalletMVCApp\bin\AmigoWalletMVCApp.dll.config
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\AmigoWalletMVCApp\bin\AmigoWalletMVCApp.dll
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\AmigoWalletMVCApp\bin\AmigoWalletMVCApp.pdb
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\AmigoWalletMVCApp\bin\AmigoWalletDAL.dll
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\AmigoWalletMVCApp\bin\AmigoWalletDAL.pdb
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\AmigoWalletMVCApp\obj\Debug\AmigoWalletMVCApp.csprojResolveAssemblyReference.cache
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\AmigoWalletMVCApp\obj\Debug\AmigoWalletMVCApp.dll
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\AmigoWalletMVCApp\obj\Debug\AmigoWalletMVCApp.pdb
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\AmigoWalletMVCApp\bin\System.Web.Razor.xml
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\AmigoWalletMVCApp\bin\System.Web.Webpages.xml
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\AmigoWalletMVCApp\bin\System.Web.Webpages.Deployment.xml
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\AmigoWalletMVCApp\bin\System.Web.Webpages.Razor.xml
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\AmigoWalletMVCApp\bin\System.Web.Helpers.xml
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\AmigoWalletMVCApp\bin\System.Web.Mvc.xml

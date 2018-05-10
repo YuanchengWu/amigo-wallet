@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AmigoWalletModelStoreContainer" CdmEntityContainer="AmigoWalletDBContext">
+    <EntitySetMapping Name="Banks">
+      <EntityTypeMapping TypeName="AmigoWalletModel.Bank">
+        <MappingFragment StoreEntitySet="Bank">
+          <ScalarProperty Name="BankId" ColumnName="BankId" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Merchants">
+      <EntityTypeMapping TypeName="AmigoWalletModel.Merchant">
+        <MappingFragment StoreEntitySet="Merchant">
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedTimestamp" ColumnName="CreatedTimestamp" />
+          <ScalarProperty Name="ModifiedTimestamp" ColumnName="ModifiedTimestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MerchantServiceMappings">
+      <EntityTypeMapping TypeName="AmigoWalletModel.MerchantServiceMapping">
+        <MappingFragment StoreEntitySet="MerchantServiceMapping">
+          <ScalarProperty Name="MerchantServiceMappingId" ColumnName="MerchantServiceMappingId" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="DiscountPercent" ColumnName="DiscountPercent" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedTimestamp" ColumnName="CreatedTimestamp" />
+          <ScalarProperty Name="ModifiedTimestamp" ColumnName="ModifiedTimestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MerchantServiceTypes">
+      <EntityTypeMapping TypeName="AmigoWalletModel.MerchantServiceType">
+        <MappingFragment StoreEntitySet="MerchantServiceType">
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MerchantTransactions">
+      <EntityTypeMapping TypeName="AmigoWalletModel.MerchantTransaction">
+        <MappingFragment StoreEntitySet="MerchantTransactions">
+          <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="TransactionDateTime" ColumnName="TransactionDateTime" />
+          <ScalarProperty Name="PaymentTypeId" ColumnName="PaymentTypeId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OTPs">
+      <EntityTypeMapping TypeName="AmigoWalletModel.OTP">
+        <MappingFragment StoreEntitySet="OTP">
+          <ScalarProperty Name="OTPId" ColumnName="OTPId" />
+          <ScalarProperty Name="OTP1" ColumnName="OTP" />
+          <ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
+          <ScalarProperty Name="ExpiryDateTime" ColumnName="ExpiryDateTime" />
+          <ScalarProperty Name="OTPPurposeId" ColumnName="OTPPurposeId" />
+          <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OTPPurposes">
+      <EntityTypeMapping TypeName="AmigoWalletModel.OTPPurpose">
+        <MappingFragment StoreEntitySet="OTPPurpose">
+          <ScalarProperty Name="OTPPurposeId" ColumnName="OTPPurposeId" />
+          <ScalarProperty Name="OTPPurpose1" ColumnName="OTPPurpose" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentTypes">
+      <EntityTypeMapping TypeName="AmigoWalletModel.PaymentType">
+        <MappingFragment StoreEntitySet="PaymentType">
+          <ScalarProperty Name="PaymentTypeId" ColumnName="PaymentTypeId" />
+          <ScalarProperty Name="PaymentFrom" ColumnName="PaymentFrom" />
+          <ScalarProperty Name="PaymentTo" ColumnName="PaymentTo" />
+          <ScalarProperty Name="PaymentType1" ColumnName="PaymentType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="AmigoWalletModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="StatusValue" ColumnName="StatusValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="AmigoWalletModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="CreatedTimestamp" ColumnName="CreatedTimestamp" />
+          <ScalarProperty Name="ModifiedTimestamp" ColumnName="ModifiedTimestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserCards">
+      <EntityTypeMapping TypeName="AmigoWalletModel.UserCard">
+        <MappingFragment StoreEntitySet="UserCard">
+          <ScalarProperty Name="UserCardMappingId" ColumnName="UserCardMappingId" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="BankId" ColumnName="BankId" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="CreatedTimestamp" ColumnName="CreatedTimestamp" />
+          <ScalarProperty Name="ModifiedTimestamp" ColumnName="ModifiedTimestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTransactions">
+      <EntityTypeMapping TypeName="AmigoWalletModel.UserTransaction">
+        <MappingFragment StoreEntitySet="UserTransaction">
+          <ScalarProperty Name="UserTransactionId" ColumnName="UserTransactionId" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="TransactionDateTime" ColumnName="TransactionDateTime" />
+          <ScalarProperty Name="PaymentTypeId" ColumnName="PaymentTypeId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="PointsEarned" ColumnName="PointsEarned" />
+          <ScalarProperty Name="IsRedeemed" ColumnName="IsRedeemed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ufn_validateCredentials" FunctionName="AmigoWalletModel.Store.ufn_validateCredentials" />
+    <FunctionImportMapping FunctionImportName="usp_AddMoneyWithBank" FunctionName="AmigoWalletModel.Store.usp_AddMoneyWithBank" />
+    <FunctionImportMapping FunctionImportName="usp_AddNewCard" FunctionName="AmigoWalletModel.Store.usp_AddNewCard" />
+    <FunctionImportMapping FunctionImportName="usp_RegisterUser" FunctionName="AmigoWalletModel.Store.usp_RegisterUser" />
+    <FunctionImportMapping FunctionImportName="usp_validateCredentials" FunctionName="AmigoWalletModel.Store.usp_validateCredentials" />
+    <FunctionImportMapping FunctionImportName="usp_WalletToBank" FunctionName="AmigoWalletModel.Store.usp_WalletToBank" />
+    <FunctionImportMapping FunctionImportName="usp_RedeemRewardPoints" FunctionName="AmigoWalletModel.Store.usp_RedeemRewardPoints" />
+    <FunctionImportMapping FunctionImportName="usp_GetFullBalance" FunctionName="AmigoWalletModel.Store.usp_GetFullBalance" />
+    <FunctionImportMapping FunctionImportName="usp_AddMoneyWithCard" FunctionName="AmigoWalletModel.Store.usp_AddMoneyWithCard" />
+    <FunctionImportMapping FunctionImportName="usp_PayBills" FunctionName="AmigoWalletModel.Store.usp_PayBills" />
+    <FunctionImportMapping FunctionImportName="usp_WalletToWallet" FunctionName="AmigoWalletModel.Store.usp_WalletToWallet" />
+    <FunctionImportMapping FunctionImportName="usp_changePassword" FunctionName="AmigoWalletModel.Store.usp_changePassword" />
+    <FunctionImportMapping FunctionImportName="usp_ResetPassword" FunctionName="AmigoWalletModel.Store.usp_ResetPassword" />
+  </EntityContainerMapping>
+</Mapping>

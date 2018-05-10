@@ -1,0 +1,64 @@
+﻿@* Login page *@
+
+@model AmigoWalletMVCApp.Models.User
+
+<br />
+<br />
+<div class="row" style="height:500px">
+    @using (Html.BeginForm("Login", "Login"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h3 style="text-align:center"><strong>Amigo Wallet</strong><sup><small>TM</small></sup></h3>
+            
+            @if (ViewBag.ErrorMessage != null)
+            {
+            @:<div class="col-md-offset-4 col-md-4 text-center alert alert-danger">
+                @:<p>@ViewBag.ErrorMessage</p>
+            @:</div>
+            }
+
+            <div class="col-md-offset-4 col-md-4">
+                @Html.TextBox("email", null, new { @class = "form-control", @placeholder = "Email Address" })
+                <br />
+            </div>
+            <div class="col-md-offset-4 col-md-4">
+                @Html.Password("password", null, new { @class = "form-control", @placeholder = "Password" })
+                <br />
+                <br />
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-4">
+                    <input type="submit" value="Log In" class="btn btn-primary btn-block" />
+                </div>
+            </div>
+        </div>
+    }
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4 text-center">
+            @Html.ActionLink("Having trouble logging in ", "Index")
+        </div>
+    </div>
+    <br />
+    <div class="row text-center">
+        <div class="col-md-offset-4 col-md-4 text">
+            <div style="width: 100%; height: 20px; border-bottom: 1px solid gray; text-align: center">
+                <span style="font-size: 20px; background-color: #F3F5F6; padding: 0 10px;">
+                    or
+                </span>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+            <input type="submit" value="Sign Up" class="btn btn-default btn-block" />
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

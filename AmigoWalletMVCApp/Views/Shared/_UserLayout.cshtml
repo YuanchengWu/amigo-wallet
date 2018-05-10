@@ -1,0 +1,108 @@
+﻿@* User account page layout *@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amigo Wallet - @Session["email"]</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />*@
+    <link href="~/Content/theme.css" rel="stylesheet" type="text/css" />
+    @*<link href="~/Styles/account.css" rel="stylesheet" type="text/css" />*@
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan|Ubuntu" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="@Url.Action("Index","Home")" class="navbar-brand thick-text"><img class="logo" src="~/Images/amigologo.png" /></a>
+                <a href="@Url.Action("Index","Home")" class="navbar-brand thick-text company-name">Amigo Wallet</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li id="account_overview">@Html.ActionLink("Overview", "Home", "Account")</li>
+                    <li id="account_transfer" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Transfer to
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="" data-toggle="modal" data-target="#myModal">Another Wallet </a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#toBankModal">Bank</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="" data-toggle="modal" data-target="#payBillsModal">Pay Bills</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li id="user" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <span class="glyphicon glyphicon-user"></span>
+                            @Session["email"]
+                            
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Logout", "Login")"><span class="glyphicon glyphicon-log-out"></span>&nbsp; Logout</a></li>
+                            <li><a href="@Url.Action("ChangePassword", "Account")"><span class="glyphicon glyphicon-edit"></span>&nbsp; Change Password</a></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - AmigoWallet</p>
+        </footer>
+    </div>
+
+    <!-- Transfer to bank modal -->
+    <div id="toBankModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Enter bank details</h4>
+                </div>
+                <div class="modal-body">
+                    @{Html.RenderPartial("TransferToBank");}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Pay bills modal -->
+    <div id="payBillsModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Bill details</h4>
+                </div>
+                <div class="modal-body">
+                    @{Html.RenderPartial("PayBill");}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

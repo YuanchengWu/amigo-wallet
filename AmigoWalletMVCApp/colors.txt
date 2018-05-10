@@ -1,0 +1,13 @@
+Color scheme
+
+vibrant:
+FF3B0C
+
+E85313
+
+FF7313
+
+E88A28
+
+white-washed:
+FFB139

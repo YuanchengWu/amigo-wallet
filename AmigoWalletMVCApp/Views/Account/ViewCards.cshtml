@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AmigoWalletMVCApp.Models.UserTransaction>
+
+@* Transfer from card modal partial view *@
+@using (Html.BeginForm("TransferFromCard","Account"))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-condensed table-hover table-striped">
+                <tr>
+                    <th>
+                        Add Money From Card
+                    </th>
+                </tr>
+                @if (ViewBag.UserCards != null)
+                {
+                foreach (var item in ViewBag.UserCards)
+                {
+                    <tr>
+                        <td>
+                            
+                            @Html.RadioButton("Card",(object)item.UserCardMappingId,true)
+                            <span class="glyphicon glyphicon-credit-card"></span> X-@item.CardNumber[12]@item.CardNumber[13]@item.CardNumber[14]@item.CardNumber[15] &nbsp;&nbsp;&nbsp;&nbsp;<b>Exp. Date:</b> @item.ExpiryDate.Month/@item.ExpiryDate.Year
+                        </td>
+                    </tr>
+                } 
+                }
+            </table>
+            @Html.TextBox("amount", null, new { @class = "form-control", @placeholder = "Amount to add", @type = "number" })
+        </div>
+    </div>
+    <br />
+    <div class="row text-center">
+        <div class="col-md-12">
+            <input type="submit" value="Transfer to Wallet" class="btn btn-default" />
+        </div>
+    </div>
+        
+}
+

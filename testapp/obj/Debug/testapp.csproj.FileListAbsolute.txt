@@ -1,0 +1,10 @@
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\testapp\bin\Debug\testapp.exe.config
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\testapp\bin\Debug\testapp.exe
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\testapp\bin\Debug\testapp.pdb
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\testapp\bin\Debug\AmigoWalletDAL.dll
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\testapp\bin\Debug\EntityFramework.dll
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\testapp\bin\Debug\AmigoWalletDAL.pdb
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\testapp\obj\Debug\testapp.csprojResolveAssemblyReference.cache
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\testapp\obj\Debug\testapp.exe
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\testapp\obj\Debug\testapp.pdb
+C:\Users\yuancheng.wu\Documents\TrainingProject\AmigoWalletDAL\testapp\bin\Debug\EntityFramework.SqlServer.dll

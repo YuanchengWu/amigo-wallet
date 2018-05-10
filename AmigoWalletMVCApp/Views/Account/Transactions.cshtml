@@ -1,0 +1,64 @@
+﻿@model IEnumerable<AmigoWalletMVCApp.Models.UserTransaction>
+
+@* Transactions modal partial view *@
+<h4><strong>Transactions</strong></h4>
+@{
+    if (ViewBag.Transactions.Count > 0)
+    {
+        <table class="table table-striped table-hover table-responsive">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TransactionDateTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Info)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Amount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StatusId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Remarks)
+                </th>
+            </tr>
+
+            @foreach (var item in ViewBag.Transactions)
+            {
+                <tr>
+                    <td>
+                        @item.TransactionDateTime
+                    </td>
+                    <td>
+                        @item.Info
+                    </td>
+                    <td>
+                        @Math.Round(item.Amount, 2)
+                    </td>
+                        @{
+                            if (item.StatusId == 1)
+                            {
+                                <td>
+                                    Success
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    Fail
+                                </td>
+                            }
+                        }
+                    <td>
+                        @item.Remarks
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <div class="h4">No transactions</div>
+    }
+}

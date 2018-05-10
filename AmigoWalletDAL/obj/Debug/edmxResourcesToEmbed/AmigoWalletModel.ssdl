@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AmigoWalletModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bank">
+    <Key>
+      <PropertyRef Name="BankId" />
+    </Key>
+    <Property Name="BankId" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BankName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Merchant">
+    <Key>
+      <PropertyRef Name="MerchantId" />
+    </Key>
+    <Property Name="MerchantId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="300" />
+    <Property Name="MobileNumber" Type="varchar" MaxLength="10" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="ModifiedTimestamp" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="MerchantServiceMapping">
+    <Key>
+      <PropertyRef Name="MerchantServiceMappingId" />
+    </Key>
+    <Property Name="MerchantServiceMappingId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ServiceId" Type="tinyint" Nullable="false" />
+    <Property Name="DiscountPercent" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedTimestamp" Type="datetime2" Precision="7" />
+    <Property Name="ModifiedTimestamp" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="MerchantServiceType">
+    <Key>
+      <PropertyRef Name="ServiceId" />
+    </Key>
+    <Property Name="ServiceId" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServiceType" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MerchantTransactions">
+    <Key>
+      <PropertyRef Name="TransactionId" />
+    </Key>
+    <Property Name="TransactionId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Amount" Type="money" Nullable="false" />
+    <Property Name="TransactionDateTime" Type="datetime" Nullable="false" />
+    <Property Name="PaymentTypeId" Type="tinyint" Nullable="false" />
+    <Property Name="Remarks" Type="varchar" MaxLength="50" />
+    <Property Name="Info" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="StatusId" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OTP">
+    <Key>
+      <PropertyRef Name="OTPId" />
+    </Key>
+    <Property Name="OTPId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OTP" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="ReferenceId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ExpiryDateTime" Type="datetime" Nullable="false" />
+    <Property Name="OTPPurposeId" Type="tinyint" Nullable="false" />
+    <Property Name="IsValid" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OTPPurpose">
+    <Key>
+      <PropertyRef Name="OTPPurposeId" />
+    </Key>
+    <Property Name="OTPPurposeId" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OTPPurpose" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PaymentType">
+    <Key>
+      <PropertyRef Name="PaymentTypeId" />
+    </Key>
+    <Property Name="PaymentTypeId" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentFrom" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="PaymentTo" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="PaymentType" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="StatusId" />
+    </Key>
+    <Property Name="StatusId" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StatusValue" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MobileNumber" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="300" />
+    <Property Name="StatusId" Type="tinyint" Nullable="false" />
+    <Property Name="CreatedTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="ModifiedTimestamp" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="UserCard">
+    <Key>
+      <PropertyRef Name="UserCardMappingId" />
+    </Key>
+    <Property Name="UserCardMappingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="CardNumber" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="BankId" Type="tinyint" Nullable="false" />
+    <Property Name="ExpiryDate" Type="datetime2" Precision="7" />
+    <Property Name="StatusId" Type="tinyint" Nullable="false" />
+    <Property Name="CreatedTimestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="ModifiedTimestamp" Type="datetime2" Precision="7" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'USTRPUMSJUL17BATCH1Group2DB.dbo.UserTransaction' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="UserTransaction">
+    <Key>
+      <PropertyRef Name="UserTransactionId" />
+      <PropertyRef Name="EmailId" />
+      <PropertyRef Name="Amount" />
+      <PropertyRef Name="TransactionDateTime" />
+      <PropertyRef Name="PaymentTypeId" />
+      <PropertyRef Name="Info" />
+      <PropertyRef Name="StatusId" />
+      <PropertyRef Name="IsRedeemed" />
+      <PropertyRef Name="PointsEarned" />
+    </Key>
+    <Property Name="UserTransactionId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Amount" Type="money" Nullable="false" />
+    <Property Name="TransactionDateTime" Type="datetime" Nullable="false" />
+    <Property Name="PaymentTypeId" Type="tinyint" Nullable="false" />
+    <Property Name="Remarks" Type="varchar" MaxLength="50" />
+    <Property Name="Info" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="StatusId" Type="tinyint" Nullable="false" />
+    <Property Name="PointsEarned" Type="int" Nullable="false" />
+    <Property Name="IsRedeemed" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__User__StatusId__308E3499">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="StatusId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'fk_MerchantSM_EmailId' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="fk_MerchantSM_EmailId" />-->
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'fk_MerchantT_EmailId' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="fk_MerchantT_EmailId" />-->
+  <Association Name="fk_MerchantT_PaymentTypeId">
+    <End Role="PaymentType" Type="Self.PaymentType" Multiplicity="1" />
+    <End Role="MerchantTransactions" Type="Self.MerchantTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentType">
+        <PropertyRef Name="PaymentTypeId" />
+      </Principal>
+      <Dependent Role="MerchantTransactions">
+        <PropertyRef Name="PaymentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_MerchantT_StatusId">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="MerchantTransactions" Type="Self.MerchantTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="StatusId" />
+      </Principal>
+      <Dependent Role="MerchantTransactions">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_OTPPurposeId">
+    <End Role="OTPPurpose" Type="Self.OTPPurpose" Multiplicity="1" />
+    <End Role="OTP" Type="Self.OTP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OTPPurpose">
+        <PropertyRef Name="OTPPurposeId" />
+      </Principal>
+      <Dependent Role="OTP">
+        <PropertyRef Name="OTPPurposeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ServiceId">
+    <End Role="MerchantServiceType" Type="Self.MerchantServiceType" Multiplicity="1" />
+    <End Role="MerchantServiceMapping" Type="Self.MerchantServiceMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MerchantServiceType">
+        <PropertyRef Name="ServiceId" />
+      </Principal>
+      <Dependent Role="MerchantServiceMapping">
+        <PropertyRef Name="ServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'fk_UserCard_EmailId' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="fk_UserCard_EmailId" />-->
+  <Association Name="fk_UserT_PaymentTypeId">
+    <End Role="PaymentType" Type="Self.PaymentType" Multiplicity="1" />
+    <End Role="UserTransaction" Type="Self.UserTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentType">
+        <PropertyRef Name="PaymentTypeId" />
+      </Principal>
+      <Dependent Role="UserTransaction">
+        <PropertyRef Name="PaymentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_UserT_StatusId">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="UserTransaction" Type="Self.UserTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="StatusId" />
+      </Principal>
+      <Dependent Role="UserTransaction">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'fk_UserTransaction_EmailId' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="fk_UserTransaction_EmailId" />-->
+  <Function Name="ufn_validateCredentials" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmailId" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_AddMoneyWithBank" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmailId" Type="varchar" Mode="In" />
+    <Parameter Name="Amount" Type="money" Mode="In" />
+  </Function>
+  <Function Name="usp_AddMoneyWithCard" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmailId" Type="varchar" Mode="In" />
+    <Parameter Name="CardId" Type="int" Mode="In" />
+    <Parameter Name="Amount" Type="decimal" Mode="In" />
+    <Parameter Name="Remarks" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_AddNewCard" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmailId" Type="varchar" Mode="In" />
+    <Parameter Name="CardNumber" Type="varchar" Mode="In" />
+    <Parameter Name="BankId" Type="tinyint" Mode="In" />
+    <Parameter Name="ExpiryDate" Type="datetime2" Mode="In" />
+    <Parameter Name="StatusId" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="usp_changePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmailId" Type="varchar" Mode="In" />
+    <Parameter Name="OldPassword" Type="varchar" Mode="In" />
+    <Parameter Name="NewPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_GetFullBalance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmailId" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_PayBills" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserEmailId" Type="varchar" Mode="In" />
+    <Parameter Name="MerchantEmailId" Type="varchar" Mode="In" />
+    <Parameter Name="Amount" Type="money" Mode="In" />
+  </Function>
+  <Function Name="usp_RedeemRewardPoints" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmailId" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_RegisterUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmailId" Type="varchar" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="MobileNumber" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_ResetPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmailId" Type="varchar" Mode="In" />
+    <Parameter Name="OldPassword" Type="varchar" Mode="In" />
+    <Parameter Name="NewPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_validateCredentials" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmailId" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_WalletToBank" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmailId" Type="varchar" Mode="In" />
+    <Parameter Name="Amount" Type="money" Mode="In" />
+    <Parameter Name="Info" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Remarks" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="usp_WalletToWallet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FromEmailId" Type="varchar" Mode="In" />
+    <Parameter Name="ToEmailId" Type="varchar" Mode="In" />
+    <Parameter Name="Amount" Type="decimal" Mode="In" />
+  </Function>
+  <EntityContainer Name="AmigoWalletModelStoreContainer">
+    <EntitySet Name="Bank" EntityType="Self.Bank" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Merchant" EntityType="Self.Merchant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MerchantServiceMapping" EntityType="Self.MerchantServiceMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MerchantServiceType" EntityType="Self.MerchantServiceType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MerchantTransactions" EntityType="Self.MerchantTransactions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OTP" EntityType="Self.OTP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OTPPurpose" EntityType="Self.OTPPurpose" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentType" EntityType="Self.PaymentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserCard" EntityType="Self.UserCard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTransaction" EntityType="Self.UserTransaction" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [UserTransaction].[UserTransactionId] AS [UserTransactionId], 
+    [UserTransaction].[EmailId] AS [EmailId], 
+    [UserTransaction].[Amount] AS [Amount], 
+    [UserTransaction].[TransactionDateTime] AS [TransactionDateTime], 
+    [UserTransaction].[PaymentTypeId] AS [PaymentTypeId], 
+    [UserTransaction].[Remarks] AS [Remarks], 
+    [UserTransaction].[Info] AS [Info], 
+    [UserTransaction].[StatusId] AS [StatusId], 
+    [UserTransaction].[PointsEarned] AS [PointsEarned], 
+    [UserTransaction].[IsRedeemed] AS [IsRedeemed]
+    FROM [dbo].[UserTransaction] AS [UserTransaction]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__User__StatusId__308E3499" Association="Self.FK__User__StatusId__308E3499">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="fk_MerchantT_PaymentTypeId" Association="Self.fk_MerchantT_PaymentTypeId">
+      <End Role="PaymentType" EntitySet="PaymentType" />
+      <End Role="MerchantTransactions" EntitySet="MerchantTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="fk_MerchantT_StatusId" Association="Self.fk_MerchantT_StatusId">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="MerchantTransactions" EntitySet="MerchantTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="fk_OTPPurposeId" Association="Self.fk_OTPPurposeId">
+      <End Role="OTPPurpose" EntitySet="OTPPurpose" />
+      <End Role="OTP" EntitySet="OTP" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ServiceId" Association="Self.fk_ServiceId">
+      <End Role="MerchantServiceType" EntitySet="MerchantServiceType" />
+      <End Role="MerchantServiceMapping" EntitySet="MerchantServiceMapping" />
+    </AssociationSet>
+    <AssociationSet Name="fk_UserT_PaymentTypeId" Association="Self.fk_UserT_PaymentTypeId">
+      <End Role="PaymentType" EntitySet="PaymentType" />
+      <End Role="UserTransaction" EntitySet="UserTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="fk_UserT_StatusId" Association="Self.fk_UserT_StatusId">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="UserTransaction" EntitySet="UserTransaction" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<AmigoWalletMVCApp.Models.UserTransaction>
+
+@* Partial view for adding a new card to user account *@
+@using (Html.BeginForm("AddNewCard", "Account"))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.TextBox("CardNumber", null, new { @class = "form-control", @placeholder = "Card Number", @type = "number", @min = "1000000000000000", @max = "9999999999999999" })  
+                </div>
+            </div>                             
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-4">
+                    @Html.TextBox("ExpMonth", null, new { @class = "form-control", @placeholder = "Exp. Month", @type = "number", @min = "1", @max = "12" })
+                </div>
+                <div class="col-md-1 slash">
+                    /
+                </div>
+                <div class="col-md-4">
+                    @Html.TextBox("ExpYear", null, new { @class = "form-control", @placeholder = "Exp. Year", @type = "number", @min = "2017", @max = "2999" })
+                </div>
+                <div class="col-md-3">
+                    @Html.TextBox("cvv", null, new { @class = "form-control", @placeholder = "CVV" })
+                </div>
+            </div>  
+        </div>
+        <div class="form-group">
+            <div class="col-md-12 text-center">
+                <input type="submit" value="Add Card" class="btn btn-default" />
+            </div>
+        </div>
+        
+    </div>
+}
+

@@ -1,0 +1,89 @@
+﻿@* User registration page *@
+
+@model AmigoWalletMVCApp.Models.User
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+
+@using (Html.BeginForm("RegisterUser", "Register"))
+{
+    @Html.AntiForgeryToken()
+    <div class="row" style="height:600px">
+        <div class="col-md-4 col-md-offset-4 text-center">
+            <div class="form-horizontal">
+                <h3 style="text-align:center"><strong>Amigo Wallet</strong><sup><small>TM</small></sup></h3>
+
+                @if (Session["regError"] != null)
+                {
+                    @:<div class="text-center alert alert-danger">
+                        @:<p>@Session["regError"]</p>
+                        @:</div>
+                    Session["regError"] = null;
+                }
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.EmailId, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email Address", @autocomplete = "new-password" } })
+                        @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "Mobile Number", @autocomplete = "new-password" } })
+                        @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Name", @autocomplete = "new-password" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Password", @type = "password", @autocomplete = "new-password" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <input type="submit" value="Sign Up" class="btn btn-primary btn-block" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div style="width: 100%; height: 20px; border-bottom: 1px solid gray; text-align: center">
+                                <span style="font-size: 20px; background-color: #F3F5F6; padding: 0 10px;">
+                                    or
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <input type="submit" value="Login" class="btn btn-default btn-block" />
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
